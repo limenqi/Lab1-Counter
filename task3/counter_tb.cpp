@@ -19,11 +19,14 @@ int main(int argc, char **argv, char **env){
     // init Vbuddy
     if (vbdOpen()!=1) return(-1);
     vbdHeader("Lab 1: Counter");
+    
+    vbdSetMode(1);    // Set Vbuddy to type 1 mode
 
     // initialize simulation inputs
     top->clk = 1;
     top->rst = 1;
     top->ld = 0;
+    top->v = vbdValue();
 
     // run simulation for many clock cycles
     for (i = 0; i < 300; i++) {
@@ -38,11 +41,11 @@ int main(int argc, char **argv, char **env){
             top->eval();
         }
 
-        vbdHex (4, (int(top->count) >> 16) & 0xF);
-        vbdHex (3, (int(top->count) >> 8) & 0xF);
-        vbdHex (2, (int(top->count) >> 4) & 0xF);
-        vbdHex (1, int(top->count) & 0xF);
-        // vbdPlot(int(top->count), 0, 255);
+        // vbdHex (4, (int(top->count) >> 16) & 0xF);
+        // vbdHex (3, (int(top->count) >> 8) & 0xF);
+        // vbdHex (2, (int(top->count) >> 4) & 0xF);
+        // vbdHex (1, int(top->count) & 0xF);
+        vbdPlot(int(top->count), 0, 255);
         vbdCycle(i+1);
 
         top ->rst = (i < 2);
