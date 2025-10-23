@@ -1,4 +1,4 @@
-#include "Vcounter.h"
+#include "Vtop.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "vbuddy.cpp"
@@ -9,7 +9,7 @@ int main(int argc, char **argv, char **env){
 
     Verilated::commandArgs(argc, argv);
     // init top verilog instance
-    Vcounter* top = new Vcounter;
+    Vtop* top = new Vtop;
     // init trace dump
     Verilated::traceEverOn(true);
     VerilatedVcdC* tfp = new VerilatedVcdC;
@@ -19,11 +19,14 @@ int main(int argc, char **argv, char **env){
     // init Vbuddy
     if (vbdOpen()!=1) return(-1);
     vbdHeader("Lab 1: Counter");
+    
+    vbdSetMode(1);    // Set Vbuddy to type 1 mode
 
     // initialize simulation inputs
     top->clk = 1;
-    top->rst = 1;
-    top->en = 0;
+    top->rst = 0;
+    top->en = 1;
+    top->v = 0;
 
     // run simulation for many clock cycles
     for (i = 0; i < 300; i++) {
@@ -38,15 +41,16 @@ int main(int argc, char **argv, char **env){
             top->eval();
         }
 
-        vbdHex (4, (int(top->count) >> 16) & 0xF);
-        vbdHex (3, (int(top->count) >> 8) & 0xF);
-        vbdHex (2, (int(top->count) >> 4) & 0xF);
-        vbdHex (1, int(top->count) & 0xF);
-        // vbdPlot(int(top->count), 0, 255); // if u want to show a plot instead of 7-segment display
+        vbdHex (4, (int(top->bcd) >> 16) & 0xF);
+        vbdHex (3, (int(top->bcd) >> 8) & 0xF);
+        vbdHex (2, (int(top->bcd) >> 4) & 0xF);
+        vbdHex (1, int(top->bcd) & 0xF);
+        // vbdPlot(int(top->count), 0, 255);
         vbdCycle(i+1);
 
         top ->rst = (i < 2);
         top ->en = vbdFlag();
+        top->v = vbdValue();
         if (Verilated::gotFinish()) exit(0);
     }
 

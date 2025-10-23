@@ -1,16 +1,16 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Design internal header
-// See Vcounter.h for the primary calling header
+// See Vtop.h for the primary calling header
 
-#ifndef VERILATED_VCOUNTER___024ROOT_H_
-#define VERILATED_VCOUNTER___024ROOT_H_  // guard
+#ifndef VERILATED_VTOP___024ROOT_H_
+#define VERILATED_VTOP___024ROOT_H_  // guard
 
 #include "verilated.h"
 
 
-class Vcounter__Syms;
+class Vtop__Syms;
 
-class alignas(VL_CACHE_LINE_BYTES) Vcounter___024root final : public VerilatedModule {
+class alignas(VL_CACHE_LINE_BYTES) Vtop___024root final : public VerilatedModule {
   public:
 
     // DESIGN SPECIFIC STATE
@@ -31,12 +31,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vcounter___024root final : public VerilatedMo
     VlTriggerVec<2> __VnbaTriggered;
 
     // INTERNAL VARIABLES
-    Vcounter__Syms* const vlSymsp;
+    Vtop__Syms* const vlSymsp;
 
     // CONSTRUCTORS
-    Vcounter___024root(Vcounter__Syms* symsp, const char* v__name);
-    ~Vcounter___024root();
-    VL_UNCOPYABLE(Vcounter___024root);
+    Vtop___024root(Vtop__Syms* symsp, const char* v__name);
+    ~Vtop___024root();
+    VL_UNCOPYABLE(Vtop___024root);
 
     // INTERNAL METHODS
     void __Vconfigure(bool first);

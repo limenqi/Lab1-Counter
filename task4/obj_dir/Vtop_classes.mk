@@ -2,7 +2,7 @@
 # DESCRIPTION: Verilator output: Make include file with class lists
 #
 # This file lists generated Verilated files, for including in higher level makefiles.
-# See Vcounter.mk for the caller.
+# See Vtop.mk for the caller.
 
 ### Switches...
 # C11 constructs required?  0/1 (always on now)
@@ -25,25 +25,25 @@ VM_TRACE_VCD = 1
 ### Object file lists...
 # Generated module classes, fast-path, compile with highest optimization
 VM_CLASSES_FAST += \
-  Vcounter \
-  Vcounter___024root__DepSet_h0dd033c2__0 \
-  Vcounter___024root__DepSet_h5086c508__0 \
+  Vtop \
+  Vtop___024root__DepSet_h4b98a05d__0 \
+  Vtop___024root__DepSet_h6944321b__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
-  Vcounter___024root__Slow \
-  Vcounter___024root__DepSet_h0dd033c2__0__Slow \
-  Vcounter___024root__DepSet_h5086c508__0__Slow \
+  Vtop___024root__Slow \
+  Vtop___024root__DepSet_h4b98a05d__0__Slow \
+  Vtop___024root__DepSet_h6944321b__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
-  Vcounter__Trace__0 \
+  Vtop__Trace__0 \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
 VM_SUPPORT_SLOW += \
-  Vcounter__Syms \
-  Vcounter__Trace__0__Slow \
-  Vcounter__TraceDecls__0__Slow \
+  Vtop__Syms \
+  Vtop__Trace__0__Slow \
+  Vtop__TraceDecls__0__Slow \
 
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \

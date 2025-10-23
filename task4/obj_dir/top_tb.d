@@ -1,4 +1,4 @@
-top_tb.o: ../top_tb.cpp Vcounter.h \
+top_tb.o: ../top_tb.cpp Vtop.h \
   /opt/homebrew/Cellar/verilator/5.038/share/verilator/include/verilated.h \
   /opt/homebrew/Cellar/verilator/5.038/share/verilator/include/verilated_config.h \
   /opt/homebrew/Cellar/verilator/5.038/share/verilator/include/verilatedos.h \

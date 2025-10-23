@@ -15,6 +15,7 @@ counter myCounter (
   .clk (clk),
   .rst (rst),
   .en (en),
+  .v (v),
   .count (count)
 );
 

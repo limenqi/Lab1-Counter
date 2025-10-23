@@ -1,95 +1,39 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Design implementation internals
-// See Vcounter.h for the primary calling header
+// See Vtop.h for the primary calling header
 
-#include "Vcounter__pch.h"
-#include "Vcounter___024root.h"
+#include "Vtop__pch.h"
+#include "Vtop___024root.h"
 
-VL_ATTR_COLD void Vcounter___024root___eval_static(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_static\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+void Vtop___024root___eval_act(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_act\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+}
+
+void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf);
+
+void Vtop___024root___eval_nba(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_nba\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.__Vtrigprevexpr___TOP__clk__0 = vlSelfRef.clk;
-    vlSelfRef.__Vtrigprevexpr___TOP__rst__0 = vlSelfRef.rst;
-}
-
-VL_ATTR_COLD void Vcounter___024root___eval_initial(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_initial\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-}
-
-VL_ATTR_COLD void Vcounter___024root___eval_final(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_final\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-}
-
-#ifdef VL_DEBUG
-VL_ATTR_COLD void Vcounter___024root___dump_triggers__stl(Vcounter___024root* vlSelf);
-#endif  // VL_DEBUG
-VL_ATTR_COLD bool Vcounter___024root___eval_phase__stl(Vcounter___024root* vlSelf);
-
-VL_ATTR_COLD void Vcounter___024root___eval_settle(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_settle\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Init
-    IData/*31:0*/ __VstlIterCount;
-    CData/*0:0*/ __VstlContinue;
-    // Body
-    __VstlIterCount = 0U;
-    vlSelfRef.__VstlFirstIteration = 1U;
-    __VstlContinue = 1U;
-    while (__VstlContinue) {
-        if (VL_UNLIKELY(((0x64U < __VstlIterCount)))) {
-#ifdef VL_DEBUG
-            Vcounter___024root___dump_triggers__stl(vlSelf);
-#endif
-            VL_FATAL_MT("top.sv", 1, "", "Settle region did not converge.");
-        }
-        __VstlIterCount = ((IData)(1U) + __VstlIterCount);
-        __VstlContinue = 0U;
-        if (Vcounter___024root___eval_phase__stl(vlSelf)) {
-            __VstlContinue = 1U;
-        }
-        vlSelfRef.__VstlFirstIteration = 0U;
+    if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        Vtop___024root___nba_sequent__TOP__0(vlSelf);
     }
 }
 
-#ifdef VL_DEBUG
-VL_ATTR_COLD void Vcounter___024root___dump_triggers__stl(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___dump_triggers__stl\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__0\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((1U & (~ vlSelfRef.__VstlTriggered.any()))) {
-        VL_DBG_MSGF("         No triggers active\n");
-    }
-    if ((1ULL & vlSelfRef.__VstlTriggered.word(0U))) {
-        VL_DBG_MSGF("         'stl' region trigger index 0 is active: Internal 'stl' trigger - first iteration\n");
-    }
-}
-#endif  // VL_DEBUG
-
-VL_ATTR_COLD void Vcounter___024root___stl_sequent__TOP__0(Vcounter___024root* vlSelf);
-
-VL_ATTR_COLD void Vcounter___024root___eval_stl(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_stl\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    if ((1ULL & vlSelfRef.__VstlTriggered.word(0U))) {
-        Vcounter___024root___stl_sequent__TOP__0(vlSelf);
-    }
-}
-
-VL_ATTR_COLD void Vcounter___024root___stl_sequent__TOP__0(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___stl_sequent__TOP__0\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
+    vlSelfRef.top__DOT__count = ((IData)(vlSelfRef.rst)
+                                  ? 0U : (0xffU & ((IData)(vlSelfRef.en)
+                                                    ? (IData)(vlSelfRef.v)
+                                                    : 
+                                                   ((IData)(1U) 
+                                                    + (IData)(vlSelfRef.top__DOT__count)))));
     vlSelfRef.top__DOT__myDecoder__DOT__result = 0U;
     vlSelfRef.top__DOT__myDecoder__DOT__result = ((0xfff00U 
                                                    & vlSelfRef.top__DOT__myDecoder__DOT__result) 
@@ -242,72 +186,100 @@ VL_ATTR_COLD void Vcounter___024root___stl_sequent__TOP__0(Vcounter___024root* v
                                >> 8U));
 }
 
-VL_ATTR_COLD void Vcounter___024root___eval_triggers__stl(Vcounter___024root* vlSelf);
+void Vtop___024root___eval_triggers__act(Vtop___024root* vlSelf);
 
-VL_ATTR_COLD bool Vcounter___024root___eval_phase__stl(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___eval_phase__stl\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+bool Vtop___024root___eval_phase__act(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_phase__act\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    CData/*0:0*/ __VstlExecute;
+    VlTriggerVec<2> __VpreTriggered;
+    CData/*0:0*/ __VactExecute;
     // Body
-    Vcounter___024root___eval_triggers__stl(vlSelf);
-    __VstlExecute = vlSelfRef.__VstlTriggered.any();
-    if (__VstlExecute) {
-        Vcounter___024root___eval_stl(vlSelf);
+    Vtop___024root___eval_triggers__act(vlSelf);
+    __VactExecute = vlSelfRef.__VactTriggered.any();
+    if (__VactExecute) {
+        __VpreTriggered.andNot(vlSelfRef.__VactTriggered, vlSelfRef.__VnbaTriggered);
+        vlSelfRef.__VnbaTriggered.thisOr(vlSelfRef.__VactTriggered);
+        Vtop___024root___eval_act(vlSelf);
     }
-    return (__VstlExecute);
+    return (__VactExecute);
+}
+
+bool Vtop___024root___eval_phase__nba(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_phase__nba\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Init
+    CData/*0:0*/ __VnbaExecute;
+    // Body
+    __VnbaExecute = vlSelfRef.__VnbaTriggered.any();
+    if (__VnbaExecute) {
+        Vtop___024root___eval_nba(vlSelf);
+        vlSelfRef.__VnbaTriggered.clear();
+    }
+    return (__VnbaExecute);
 }
 
 #ifdef VL_DEBUG
-VL_ATTR_COLD void Vcounter___024root___dump_triggers__act(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___dump_triggers__act\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+VL_ATTR_COLD void Vtop___024root___dump_triggers__nba(Vtop___024root* vlSelf);
+#endif  // VL_DEBUG
+#ifdef VL_DEBUG
+VL_ATTR_COLD void Vtop___024root___dump_triggers__act(Vtop___024root* vlSelf);
+#endif  // VL_DEBUG
+
+void Vtop___024root___eval(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Init
+    IData/*31:0*/ __VnbaIterCount;
+    CData/*0:0*/ __VnbaContinue;
     // Body
-    if ((1U & (~ vlSelfRef.__VactTriggered.any()))) {
-        VL_DBG_MSGF("         No triggers active\n");
-    }
-    if ((1ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge clk)\n");
-    }
-    if ((2ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge rst)\n");
+    __VnbaIterCount = 0U;
+    __VnbaContinue = 1U;
+    while (__VnbaContinue) {
+        if (VL_UNLIKELY(((0x64U < __VnbaIterCount)))) {
+#ifdef VL_DEBUG
+            Vtop___024root___dump_triggers__nba(vlSelf);
+#endif
+            VL_FATAL_MT("top.sv", 1, "", "NBA region did not converge.");
+        }
+        __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
+        __VnbaContinue = 0U;
+        vlSelfRef.__VactIterCount = 0U;
+        vlSelfRef.__VactContinue = 1U;
+        while (vlSelfRef.__VactContinue) {
+            if (VL_UNLIKELY(((0x64U < vlSelfRef.__VactIterCount)))) {
+#ifdef VL_DEBUG
+                Vtop___024root___dump_triggers__act(vlSelf);
+#endif
+                VL_FATAL_MT("top.sv", 1, "", "Active region did not converge.");
+            }
+            vlSelfRef.__VactIterCount = ((IData)(1U) 
+                                         + vlSelfRef.__VactIterCount);
+            vlSelfRef.__VactContinue = 0U;
+            if (Vtop___024root___eval_phase__act(vlSelf)) {
+                vlSelfRef.__VactContinue = 1U;
+            }
+        }
+        if (Vtop___024root___eval_phase__nba(vlSelf)) {
+            __VnbaContinue = 1U;
+        }
     }
 }
-#endif  // VL_DEBUG
 
 #ifdef VL_DEBUG
-VL_ATTR_COLD void Vcounter___024root___dump_triggers__nba(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___dump_triggers__nba\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_debug_assertions\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((1U & (~ vlSelfRef.__VnbaTriggered.any()))) {
-        VL_DBG_MSGF("         No triggers active\n");
-    }
-    if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge clk)\n");
-    }
-    if ((2ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge rst)\n");
-    }
+    if (VL_UNLIKELY(((vlSelfRef.clk & 0xfeU)))) {
+        Verilated::overWidthError("clk");}
+    if (VL_UNLIKELY(((vlSelfRef.rst & 0xfeU)))) {
+        Verilated::overWidthError("rst");}
+    if (VL_UNLIKELY(((vlSelfRef.en & 0xfeU)))) {
+        Verilated::overWidthError("en");}
 }
 #endif  // VL_DEBUG
-
-VL_ATTR_COLD void Vcounter___024root___ctor_var_reset(Vcounter___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___ctor_var_reset\n"); );
-    Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    const uint64_t __VscopeHash = VL_MURMUR64_HASH(vlSelf->name());
-    vlSelf->clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16707436170211756652ull);
-    vlSelf->rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18209466448985614591ull);
-    vlSelf->en = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7710216835639188562ull);
-    vlSelf->v = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 260667111241363922ull);
-    vlSelf->bcd = VL_SCOPED_RAND_RESET_I(12, __VscopeHash, 13808063621230957514ull);
-    vlSelf->top__DOT__count = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 893189210593458384ull);
-    vlSelf->top__DOT__myDecoder__DOT__result = VL_SCOPED_RAND_RESET_I(20, __VscopeHash, 9727537705930217673ull);
-    vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9526919608049418986ull);
-    vlSelf->__Vtrigprevexpr___TOP__rst__0 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 3495601893105415319ull);
-}

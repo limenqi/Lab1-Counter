@@ -5,12 +5,13 @@ module counter #(
     input   logic             clk,      // clock
     input   logic             rst,      // reset
     input   logic             en,       // enable
+    input   logic [WIDTH-1:0] v, 
     output  logic [WIDTH-1:0] count     // count output
 );
 
 always_ff @(posedge clk, posedge rst) 
     if (rst) count <= {WIDTH{1'b0}}; 
-    else if (en)  count <= count + 1'b1;
-    else if (~en) count <= count - 1'b1;
+    else if (en)  count <= v;
+    else count <= count + 1'b1;
 
 endmodule
