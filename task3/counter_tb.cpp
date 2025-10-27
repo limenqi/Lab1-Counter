@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **env){
     top->v = vbdValue();
 
     // run simulation for many clock cycles
-    for (i = 0; i < 300; i++) {
+    for (i = 0; i < 30000; i++) {
 
         // dump variables into VCD file and toggle clock
         // every i is one clock cycle and one clock cycle contains rising edge and falling edge
@@ -48,6 +48,8 @@ int main(int argc, char **argv, char **env){
         vbdPlot(int(top->count), 0, 255);
         vbdCycle(i+1);
 
+        top->v = vbdValue();
+        
         top ->rst = (i < 2);
         top ->ld = vbdFlag();
         if (Verilated::gotFinish()) exit(0);
