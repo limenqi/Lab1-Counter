@@ -29,9 +29,7 @@ VL_INLINE_OPT void Vcounter___024root___nba_sequent__TOP__0(Vcounter___024root* 
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.count = ((IData)(vlSelfRef.rst) ? 0U : 
-                       (0xffU & ((IData)(vlSelfRef.ld)
-                                  ? (IData)(vlSelfRef.v)
-                                  : ((IData)(1U) + (IData)(vlSelfRef.count)))));
+                       (0xffU & ((IData)(1U) + (IData)(vlSelfRef.count))));
 }
 
 void Vcounter___024root___eval_triggers__act(Vcounter___024root* vlSelf);

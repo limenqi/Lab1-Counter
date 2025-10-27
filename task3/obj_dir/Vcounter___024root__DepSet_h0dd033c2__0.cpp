@@ -15,9 +15,9 @@ void Vcounter___024root___eval_triggers__act(Vcounter___024root* vlSelf) {
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.__VactTriggered.setBit(0U, ((IData)(vlSelfRef.clk) 
-                                          & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__clk__0))));
-    vlSelfRef.__Vtrigprevexpr___TOP__clk__0 = vlSelfRef.clk;
+    vlSelfRef.__VactTriggered.setBit(0U, ((IData)(vlSelfRef.ld) 
+                                          & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__ld__0))));
+    vlSelfRef.__Vtrigprevexpr___TOP__ld__0 = vlSelfRef.ld;
 #ifdef VL_DEBUG
     if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
         Vcounter___024root___dump_triggers__act(vlSelf);

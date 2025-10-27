@@ -41,7 +41,6 @@ int main(int argc, char **argv, char **env){
             top->eval();
         }
 
-        vbdHex (4, (int(top->bcd) >> 16) & 0xF);
         vbdHex (3, (int(top->bcd) >> 8) & 0xF);
         vbdHex (2, (int(top->bcd) >> 4) & 0xF);
         vbdHex (1, int(top->bcd) & 0xF);

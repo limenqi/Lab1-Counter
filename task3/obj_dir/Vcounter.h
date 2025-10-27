@@ -29,9 +29,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vcounter VL_NOT_FINAL : public VerilatedModel
     // PORTS
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
+    VL_IN8(&ld,0,0);
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
-    VL_IN8(&ld,0,0);
     VL_IN8(&v,7,0);
     VL_OUT8(&count,7,0);
 

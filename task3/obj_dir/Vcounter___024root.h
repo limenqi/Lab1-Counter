@@ -14,12 +14,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vcounter___024root final : public VerilatedMo
   public:
 
     // DESIGN SPECIFIC STATE
+    VL_IN8(ld,0,0);
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    VL_IN8(ld,0,0);
     VL_IN8(v,7,0);
     VL_OUT8(count,7,0);
-    CData/*0:0*/ __Vtrigprevexpr___TOP__clk__0;
+    CData/*0:0*/ __Vtrigprevexpr___TOP__ld__0;
     CData/*0:0*/ __VactContinue;
     IData/*31:0*/ __VactIterCount;
     VlTriggerVec<1> __VactTriggered;
